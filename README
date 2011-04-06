@@ -1,0 +1,26 @@
+This is a vagrant (http://vagrantup.com/) setup with node.js v0.4.5.
+
+I used fabriceb's Symfony VM setup as a base.
+
+To try it, follow the instructions here:
+
+http://www.theodo.fr/blog/2011/03/start-using-vagrant/
+
+When you get to the "Test on a first project" section, do this instead:
+
+% git clone git://github.com/drench/vagrant-nodejs.git
+% cd vagrant-nodejs
+% vagrant up
+
+Since you're compiling node.js from source, it may take a while.
+
+Once you get your prompt back, ssh into your VM:
+
+% vagrant ssh
+
+Then run the example node "app":
+
+% /vagrant/hello.js
+
+Point your favorite browser at http://localhost:2011/ to verify
+that it worked.
