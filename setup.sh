@@ -1,17 +1,15 @@
 #!/bin/sh
 
+DEBIAN_FRONTEND=noninteractive
+export DEBIAN_FRONTEND
+
 apt-get --yes update
 
-for X in build-essential g++ curl libssl-dev apache2-utils pkg-config; do
+for X in libapache2-mod-php5 php5-mysql mysql-server; do
 	apt-get --yes install $X
 done
 
-ownerid=`stat -c%u /vagrant`
+echo '<?php phpinfo(); ?>' > /var/www/index.php
+rm -v /var/www/index.html
 
-cd /vagrant && \
-wget --timestamping http://nodejs.org/dist/node-v0.4.5.tar.gz && \
-sudo -u\#$ownerid tar zvxf node-v0.4.5.tar.gz && \
-cd node-v0.4.5 && \
-./configure && \
-make && \
-make install
+/etc/init.d/apache2 restart

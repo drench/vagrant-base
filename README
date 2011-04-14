@@ -1,4 +1,4 @@
-This is a vagrant (http://vagrantup.com/) setup with node.js v0.4.5.
+This is a vagrant (http://vagrantup.com/) LAMP setup
 
 I used fabriceb's Symfony VM setup as a base.
 
@@ -8,19 +8,13 @@ http://www.theodo.fr/blog/2011/03/start-using-vagrant/
 
 When you get to the "Test on a first project" section, do this instead:
 
-% git clone git://github.com/drench/vagrant-nodejs.git
-% cd vagrant-nodejs
+% git clone git://github.com/drench/vagrant-base.git -b lamp lamp
+% cd lamp
 % vagrant up
 
-Since you're compiling node.js from source, it may take a while.
-
-Once you get your prompt back, ssh into your VM:
+Once you get your prompt back, you can ssh into your VM:
 
 % vagrant ssh
 
-Then run the example node "app":
-
-% /vagrant/hello.js
-
 Point your favorite browser at http://localhost:2011/ to verify
-that it worked.
+that your Linux-Apache-Mysql-Php is running.
