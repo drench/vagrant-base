@@ -1,8 +1,15 @@
-This is a vagrant (http://vagrantup.com/) LAMP setup
+This is a generic vagrant (http://vagrantup.com/) setup
 
-I used fabriceb's Symfony VM setup as a base.
+I originally used fabriceb's Symfony VM setup as a base, stripped it
+down, and started building from that.
 
-To try it, follow the instructions here:
+The 'base' branch is just that: a base. It runs no services, and
+has no extras. The interesting stuff is in the branches that build
+from this.
+
+Let's say you want a generic "LAMP" server.
+
+Follow the instructions here:
 
 http://www.theodo.fr/blog/2011/03/start-using-vagrant/
 
@@ -11,10 +18,3 @@ When you get to the "Test on a first project" section, do this instead:
 % git clone git://github.com/drench/vagrant-base.git -b lamp lamp
 % cd lamp
 % vagrant up
-
-Once you get your prompt back, you can ssh into your VM:
-
-% vagrant ssh
-
-Point your favorite browser at http://localhost:2011/ to verify
-that your Linux-Apache-Mysql-Php is running.
