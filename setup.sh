@@ -5,13 +5,13 @@ export DEBIAN_FRONTEND
 
 apt-get --yes update
 
-for X in libapache2-mod-php5 php5-mysql php5-gd mysql-server; do
+for X in libapache2-mod-php5 php5-mysql mysql-server; do
 	apt-get --yes install $X
 done
 
 cat <<MYSEEQUAL | mysql -u root
-CREATE DATABASE drupal;
-GRANT ALL ON drupal.* TO drupal@localhost IDENTIFIED BY '';
+CREATE DATABASE wordpress;
+GRANT ALL ON wordpress.* TO wordpress@localhost IDENTIFIED BY '';
 MYSEEQUAL
 
 ownerid=`stat -c%u /vagrant`
@@ -28,25 +28,27 @@ echo "export APACHE_RUN_USER=lamp" >> /etc/apache2/envvars
 
 a2enmod rewrite
 
-cat > /etc/apache2/conf.d/drupal <<YUKKS
+cat > /etc/apache2/conf.d/wordpress <<YUKKS
 <Directory /var/www>
     AllowOverride all
-    Include /var/www/.htaccess
 </Directory>
 YUKKS
 
 cd /vagrant && \
 wget --timestamping \
-    http://ftp.drupal.org/files/projects/drupal-6.20.tar.gz && \
-sudo -u\#$ownerid tar zvxf drupal-6.20.tar.gz
+    http://wordpress.org/wordpress-3.1.1.tar.gz && \
+sudo -u\#$ownerid tar zvxf wordpress-3.1.1.tar.gz
 
 rm -v /var/www/index.html
 rmdir /var/www
-ln -s /vagrant/drupal-6.20 /var/www
+ln -s /vagrant/wordpress /var/www
 
-cd /var/www/sites/default && \
-cp -v default.settings.php settings.php && \
-patch < /vagrant/settings.patch
-chmod 0444 settings.php
+kns=`wget -q -O - --no-check-certificate \
+    https://api.wordpress.org/secret-key/1.1/salt/`
+
+cd /var/www/ && \
+echo "<?php $kns ?>" > keys-n-salts.php && \
+cp -v wp-config-sample.php wp-config.php && \
+patch < /vagrant/wp-config.patch
 
 /etc/init.d/apache2 restart
