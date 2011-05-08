@@ -36,8 +36,8 @@ YUKKS
 
 cd /vagrant && \
 wget --timestamping \
-    http://wordpress.org/wordpress-3.1.1.tar.gz && \
-sudo -u\#$ownerid tar zvxf wordpress-3.1.1.tar.gz
+    http://wordpress.org/wordpress-3.1.2.tar.gz && \
+sudo -u\#$ownerid tar zvxf wordpress-3.1.2.tar.gz
 
 rm -v /var/www/index.html
 rmdir /var/www
