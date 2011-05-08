@@ -1,11 +1,22 @@
---- settings.php.orig	2010-12-15 07:21:14.000000000 -0600
-+++ settings.php	2011-04-15 16:47:53.000000000 -0500
-@@ -89,7 +89,7 @@
-  *   $db_url = 'mysqli://username:password@localhost/databasename';
-  *   $db_url = 'pgsql://username:password@localhost/databasename';
+--- default.settings.php	2010-10-11 18:49:48.000000000 -0500
++++ settings.php	2011-05-07 13:40:12.000000000 -0500
+@@ -178,7 +178,18 @@
+  *   );
+  * @endcode
   */
--$db_url = 'mysql://username:password@localhost/databasename';
-+$db_url = 'mysqli://drupal:@localhost/drupal';
- $db_prefix = '';
+-$databases = array();
++$databases = array(
++    'default' => array(
++        'default' => array (
++            'driver'   => 'mysql',
++            'database' => 'drupal',
++            'username' => 'drupal',
++            'password' => '',
++            'host'     => 'localhost',
++            'prefix'   => '',
++        )
++    )
++);
  
  /**
+  * Access control for update.php script.

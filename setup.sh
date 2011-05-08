@@ -37,12 +37,12 @@ YUKKS
 
 cd /vagrant && \
 wget --timestamping \
-    http://ftp.drupal.org/files/projects/drupal-6.20.tar.gz && \
-sudo -u\#$ownerid tar zvxf drupal-6.20.tar.gz
+    http://ftp.drupal.org/files/projects/drupal-7.0.tar.gz && \
+sudo -u\#$ownerid tar zvxf drupal-7.0.tar.gz
 
 rm -v /var/www/index.html
 rmdir /var/www
-ln -s /vagrant/drupal-6.20 /var/www
+ln -s /vagrant/drupal-7.0 /var/www
 
 cd /var/www/sites/default && \
 cp -v default.settings.php settings.php && \

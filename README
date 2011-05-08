@@ -1,4 +1,5 @@
-This is a vagrant (http://vagrantup.com/) Drupal 6 setup
+This is a vagrant (http://vagrantup.com/) Drupal setup,
+currently version 7.0 with a MySQL back end.
 
 I used fabriceb's Symfony VM setup as a base.
 
@@ -8,9 +9,9 @@ http://www.theodo.fr/blog/2011/03/start-using-vagrant/
 
 When you get to the "Test on a first project" section, do this instead:
 
-% git clone git://github.com/drench/vagrant-base.git -b drupal6 drupal6
-% cd drupal6
+% git clone git://github.com/drench/vagrant-base.git -b drupal drupal
+% cd drupal
 % vagrant up
 
 Point your favorite browser at http://localhost:2011/install.php to complete
-your Drupal 6 installation.
+your Drupal installation.
