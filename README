@@ -1,4 +1,4 @@
-This is a generic vagrant (http://vagrantup.com/) setup
+This is a vagrant (http://vagrantup.com/) setup that installs Reddit
 
 I originally used fabriceb's Symfony VM setup as a base, stripped it
 down, and started building from that.
@@ -7,14 +7,28 @@ The 'base' branch is just that: a base. It runs no services, and
 has no extras. The interesting stuff is in the branches that build
 from this.
 
-Let's say you want a generic "LAMP" server.
-
 Follow the instructions here:
 
 http://www.theodo.fr/blog/2011/03/start-using-vagrant/
 
 When you get to the "Test on a first project" section, do this instead:
 
-% git clone git://github.com/drench/vagrant-base.git -b lamp lamp
+% git clone git://github.com/drench/vagrant-base.git -b reddit reddit
 % cd lamp
 % vagrant up
+
+It will run the latest "install-reddit.sh" for you.
+
+After installation completes, you can load test data as described here:
+
+https://github.com/reddit/reddit/wiki/reddit-install-script-for-Ubuntu
+
+% vagrant ssh
+% sudo bash
+# sudo -H -u reddit bash
+% paster shell run.ini
+>>> from r2.models import populatedb
+>>> populatedb.populate()
+
+This may take a while.
+When it's done, point your browser at http://localhost:2011/

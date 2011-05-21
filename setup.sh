@@ -1,6 +1,6 @@
 #!/bin/sh
 
-DEBIAN_FRONTEND=noninteractive
-export DEBIAN_FRONTEND
+wget --timestamping \
+    https://gist.github.com/raw/922144/install-reddit.sh && \
 
-apt-get --yes update
+sh < ./install-reddit.sh
