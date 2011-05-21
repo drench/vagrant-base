@@ -7,10 +7,12 @@ http://www.theodo.fr/blog/2011/03/start-using-vagrant/
 When you get to the "Test on a first project" section, do this instead:
 
 % git clone git://github.com/drench/vagrant-base.git -b reddit reddit
-% cd lamp
+% cd reddit
 % vagrant up
 
-It will run the latest "install-reddit.sh" for you.
+It will run the latest "install-reddit.sh" for you, which will install
+PostgreSQL, Cassandra, memcached, various Python libraries and the
+Reddit application itself.
 
 After installation completes, you can load test data as described here:
 
