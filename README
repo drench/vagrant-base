@@ -1,12 +1,5 @@
 This is a vagrant (http://vagrantup.com/) setup that installs Reddit
 
-I originally used fabriceb's Symfony VM setup as a base, stripped it
-down, and started building from that.
-
-The 'base' branch is just that: a base. It runs no services, and
-has no extras. The interesting stuff is in the branches that build
-from this.
-
 Follow the instructions here:
 
 http://www.theodo.fr/blog/2011/03/start-using-vagrant/
