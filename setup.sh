@@ -8,10 +8,12 @@ done
 
 ownerid=`stat -c%u /vagrant`
 
+version=0.4.9
+
 cd /vagrant && \
-wget --timestamping http://nodejs.org/dist/node-v0.4.5.tar.gz && \
-sudo -u\#$ownerid tar zvxf node-v0.4.5.tar.gz && \
-cd node-v0.4.5 && \
+wget --timestamping http://nodejs.org/dist/node-v${version}.tar.gz && \
+sudo -u\#$ownerid tar zvxf node-v${version}.tar.gz && \
+cd node-v${version} && \
 ./configure && \
 make && \
 make install
