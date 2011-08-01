@@ -17,3 +17,5 @@ cd node-v${version} && \
 ./configure && \
 make && \
 make install
+
+curl http://npmjs.org/install.sh | clean=yes sh
