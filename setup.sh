@@ -8,7 +8,7 @@ done
 
 ownerid=`stat -c%u /vagrant`
 
-version=0.4.9
+version=0.4.10
 
 cd /vagrant && \
 wget --timestamping http://nodejs.org/dist/node-v${version}.tar.gz && \

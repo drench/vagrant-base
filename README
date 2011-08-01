@@ -1,4 +1,4 @@
-This is a vagrant (http://vagrantup.com/) setup with node.js v0.4.9.
+This is a vagrant (http://vagrantup.com/) setup with node.js v0.4.10.
 
 I used fabriceb's Symfony VM setup as a base.
 
