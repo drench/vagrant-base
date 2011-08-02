@@ -1,5 +1,5 @@
 This is a vagrant (http://vagrantup.com/) Drupal setup,
-currently version 7.3 with a MySQL back end.
+currently version 7.4 with a MySQL back end.
 
 I used fabriceb's Symfony VM setup as a base.
 
