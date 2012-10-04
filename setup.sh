@@ -35,14 +35,16 @@ cat > /etc/apache2/conf.d/drupal <<YUKKS
 </Directory>
 YUKKS
 
+drupal=drupal-7.8
+
 cd /vagrant && \
 wget --timestamping \
-    http://ftp.drupal.org/files/projects/drupal-7.7.tar.gz && \
-sudo -u\#$ownerid tar zvxf drupal-7.7.tar.gz
+    http://ftp.drupal.org/files/projects/$drupal.tar.gz && \
+sudo -u\#$ownerid tar zvxf $drupal.tar.gz
 
 rm -v /var/www/index.html
 rmdir /var/www
-ln -s /vagrant/drupal-7.7 /var/www
+ln -s /vagrant/$drupal /var/www
 
 cd /var/www/sites/default && \
 cp -v default.settings.php settings.php && \
