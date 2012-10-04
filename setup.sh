@@ -35,7 +35,7 @@ cat > /etc/apache2/conf.d/drupal <<YUKKS
 </Directory>
 YUKKS
 
-drupal=drupal-6.23
+drupal=drupal-6.24
 
 cd /vagrant && \
 wget --timestamping \
